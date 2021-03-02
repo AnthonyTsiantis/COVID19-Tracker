@@ -1,0 +1,55 @@
+.error {
+    color: red;
+}
+
+.space {
+    padding-top: 2rem;
+}
+
+.space-top {
+    padding-top: 1rem;
+}
+
+
+.space-left {
+    padding-left: 1rem;
+}
+
+.space-below {
+    padding-bottom: 1rem;
+}
+
+.title {
+    text-align: center;
+}
+
+#map {
+    height: 250px;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+main {
+    margin: 0 auto;
+    padding: 30px 20px;
+    min-height: calc(100vh - 211px -58px);
+}
+
+table {
+    overflow-x:auto
+}

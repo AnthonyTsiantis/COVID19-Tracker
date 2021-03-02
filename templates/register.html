@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post" class="space">
+        <div class="form-group">
+            <input type="checkbox" name="health" value="health">
+            <label for="health"> Are you a Healthcare Provider?</label><br>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="First Name" placeholder="First Name" type="text" pattern="[A-Za-z]{1,25}" title="Name must only include letters" required>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="Surname" placeholder="Surname" type="text" pattern="[A-Za-z]{1,25}" title="Name must only include letters" required>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address" placeholder="Email" type="text" required>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="Password" placeholder="Password" type="password" pattern=".{6,}" title="Password must include 6 or more characters" required>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="Confirm Password" placeholder="Confirm Password" type="password" pattern=".{6,}" title="Password must include 6 or more characters" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+{% endblock %}

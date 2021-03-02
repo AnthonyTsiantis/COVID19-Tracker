@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Settings
+{% endblock %}
+
+{% block main %}
+    <div class="container title">
+        <h1>Settings</h1>
+        <h4>Name</h4>
+    </div>
+    <p>First Name: {{ first_name }}</p>
+    <p>Surname: {{ surname }}</p>
+    <div class="container title">
+        <h4>Email</h4>
+    </div>
+    <p>Current email: {{ email }}</p>
+    <form action="/settings" method="post" class="space">
+        <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address" placeholder="Email" type="text" required>
+        </div>
+        <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="Email Confirm" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address" placeholder="Confirm Email" type="text" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Change Email</button>
+    </form>
+    <div class="container title space-top">
+        <h4>Patient or Healthcare Worker?</h4>
+    </div>
+    <p>Patient or Healthcare Worker: {{ health_care }}</p>
+    <div class="space-top title">
+        <p>Webpage created by <a href="mailto:anthony44@rogers.com">Anthony Tsiantis</a></p>
+    </div>
+{% endblock %}

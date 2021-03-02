@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Updated
+{% endblock %}
+
+{% block main %}
+    <h1 class="title">Multiple Users</h1>
+    <h6 class="title">Multiple users have the name you described earlier please select the user you described</h6>
+    <table class="center table">
+        <tr>
+            <th>User ID</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+        {% for row in names %}
+            <tr>
+                <td>{{ row["id"] }}</td>
+                <td>{{ row["firstname"] }} {{ row["surname"] }}</td>
+                <td>{{ row["email"] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <form action="/update" method="post" class="space">
+        <h6 class="title">COVID Status Identifiers</h6>
+        <p>0 = Not tested</p>
+        <p>1 = Testing in Progress</p>
+        <p>2 = NEGATIVE</p>
+        <p>3 = POSITIVE</p>
+        <label for="update_test">Select patient ID:</label>
+        <input type="number" id="update_test" name="updated_id" min="0" required><br>
+        <div class="space-top"></div>
+        <label for="update_test">Update Patients COVID-19 Status:</label>
+        <input type="number" id="update_test" name="updated_status" min="0" max="3" required><br>
+        <div class="space-top"></div>
+        <button class="btn btn-primary" type="submit">Update Patient's status</button>
+    </form>
+{% endblock %}

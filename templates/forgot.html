@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Forgot Password
+{% endblock %}
+
+{% block main %}
+    <div class="container title space-top">
+        <h1>Change Password</h1>
+    </div>
+    <form action="/forgot" method="post" class="space">
+        <div class="form-group">
+            <input class="form-control" name="Password" placeholder="Password" type="password" pattern=".{6,}" title="Password must include 6 or more characters" required>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="Confirm Password" placeholder="Confirm Password" type="password" pattern=".{6,}" title="Password must include 6 or more characters" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Change Password</button>
+    </form>
+{% endblock %}

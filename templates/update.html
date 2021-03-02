@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Update
+{% endblock %}
+
+{% block main %}
+    <form action="/update" method="post" class="space">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="Firstname" placeholder="First Name" type="text" pattern="[A-Za-z]{1,25}" title="Name must only include letters" required>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="Surname" placeholder="Surname" type="text" pattern="[A-Za-z]{1,25}" title="Name must only include letters" required>
+        </div>
+        <h6 class="title">COVID Status Identifiers</h6>
+        <p>0 = Not tested</p>
+        <p>1 = Testing in Progress</p>
+        <p>2 = NEGATIVE</p>
+        <p>3 = POSITIVE</p>
+        <label for="update_test">Update Patients COVID-19 Status:</label>
+        <input type="number" id="update_test" name="update" min="0" max="3" required><br>
+        <div class="space-top"></div>
+        <button class="btn btn-primary" type="submit">Update Patient's status</button>
+    </form>
+{% endblock %}

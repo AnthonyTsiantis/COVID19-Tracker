@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="container title">
+            <h1>COVID-19 Testing</h1>
+            <ul class="list-group space-top">
+                {% if status[1] == 0 %}
+                  <li class="list-group-item list-group-item-dark">COVID-19 Test Results: <b>{{ status[0] }}</b></li>
+                {% elif status[1] == 1 %}
+                  <li class="list-group-item list-group-item-primary">COVID-19 Test Results: <b>{{ status[0] }}</b></li>
+                {% elif status[1] == 2 %}
+                  <li class="list-group-item list-group-item-success">COVID-19 Test Results: <b>{{ status[0] }}</b></li>
+                {% else %}
+                  <li class="list-group-item list-group-item-danger">COVID-19 Test Results: <b>{{ status[0] }}</b></li>
+                {% endif %}
+            </ul>
+            {% if status[1] == 3 %}
+                <script>positive();</script>
+            {% endif %}
+            <h1 class="space-top space-below">COVID-19 Cases</h1>
+            <h3>Global</h3>
+            <table class="center table">
+                <tr>
+                    <th>Cases</th>
+                    <th>Deaths</th>
+                    <th>Recovered</th>
+                </tr>
+                <tr>
+                    <td class="red">{{ global_cases }}</td>
+                    <td>{{ global_deaths }}</td>
+                    <td class="green">{{ global_recovered }}</td>
+                </tr>
+            </table>
+            {% if not country %}
+            <p>To view local data, make sure you have a secure connection, allow access to location and refresh.</p>
+
+            {% else %}
+                <h3>{{ country }}</h3>
+                <table class="center table">
+                    <tr>
+                        <th>Global Rank</th>
+                        <th>Cases</th>
+                        <th>Deaths</th>
+                        <th>Recovered</th>
+                    </tr>
+                    <tr>
+                        <td>{{ c_rank }}</td>
+                        <td class="red">{{ c_total }}</td>
+                        <td>{{ c_deaths }}</td>
+                        <td class="green">{{ c_recovered }}</td>
+                    </tr>
+                </table>
+            {% endif %}
+            {% if state_data != 'No Local Data Recovered' and state != None %}
+                <h3>{{ state }}</h3>
+                <table class="center table">
+                    <tr>
+                        <th>Local rank</th>
+                        <th>Cases</th>
+                        <th>Deaths</th>
+                        <th>Recovered</th>
+                    </tr>
+                    <tr>
+                        <td>{{ s_rank }}</td>
+                        <td class="red">{{ s_total }}</td>
+                        <td>{{ s_deaths }}</td>
+                        <td class="green">{{ s_recovered }}</td>
+                    </tr>
+                </table>
+            {% else %}
+                <p>Data is not available for your state :(</p>
+            {% endif %}
+            {% if country %}
+            <h3 class="space-below">Current Location</h3>
+            {% endif %}
+            <div id="map"></div>
+            <div class="space-top">
+                <p>Webpage created by <a href="mailto:anthony44@rogers.com">Anthony Tsiantis</a></p>
+                <p>Coronavirus data sourced from <a href="https://www.worldometers.info/coronavirus/">worldometers</a></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

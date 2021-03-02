@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Patients
+{% endblock %}
+
+{% block main %}
+    <div class="container title space-bottom">
+        <h1>List of Patients</h1>
+    </div>
+    <table class="center table">
+        <tr>
+            <th>User ID</th>
+            <th>First Name</th>
+            <th>Surname</th>
+            <th>COVID Status</th>
+        </tr>
+        {% for row in data %}
+            {% if row["health"] == 0 %}
+                <tr>
+                    <td>{{ row["id"] }}</td>
+                    <td>{{ row["firstname"] }}</td>
+                    <td>{{ row["surname"] }}</td>
+                    <td>{{ row["COVID"] }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+{% endblock %}
