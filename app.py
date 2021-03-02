@@ -4,7 +4,7 @@ from cs50 import SQL
 from werkzeug.security import check_password_hash, generate_password_hash
 from functools import wraps
 from help import login_required, global_case, local_case
-from config.py import App_Secret_Key
+from config import App_Secret_Key
 
 app = Flask(__name__)
 
